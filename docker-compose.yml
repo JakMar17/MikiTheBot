@@ -1,5 +1,5 @@
 version: "3"
 
 services:
-  restapi:
-    build: backend
+  bot:
+    build: .
