@@ -1,10 +1,9 @@
-package team.marela.covid.discor_bot.api;
+package team.marela.covid.miki_the_bot.services.jokes.your_mom;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import team.marela.covid.discor_bot.api.model.TvojaMamaNotModel;
-import team.marela.covid.discor_bot.sledilnik_api.models.MainSummaryModel;
+import team.marela.covid.miki_the_bot.services.jokes.your_mom.model.TvojaMamaNotModel;
 
 @Service
 @RequiredArgsConstructor

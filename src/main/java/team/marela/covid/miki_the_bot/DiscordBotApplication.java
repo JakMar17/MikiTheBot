@@ -1,4 +1,4 @@
-package team.marela.covid.discor_bot;
+package team.marela.covid.miki_the_bot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

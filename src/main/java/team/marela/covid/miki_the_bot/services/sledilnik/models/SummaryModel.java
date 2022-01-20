@@ -1,4 +1,4 @@
-package team.marela.covid.discor_bot.sledilnik_api.models;
+package team.marela.covid.miki_the_bot.services.sledilnik.models;
 
 import lombok.*;
 

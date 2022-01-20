@@ -1,13 +1,13 @@
-package team.marela.covid.discor_bot.sledilnik_api.services;
+package team.marela.covid.miki_the_bot.services.sledilnik;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import team.marela.covid.discor_bot.sledilnik_api.models.MainSummaryModel;
+import team.marela.covid.miki_the_bot.services.sledilnik.models.MainSummaryModel;
 
 @Service
 @RequiredArgsConstructor
-public class SledilnikSummaryService {
+public class SledilnikServices {
 
     private final RestTemplate restTemplate;
 
