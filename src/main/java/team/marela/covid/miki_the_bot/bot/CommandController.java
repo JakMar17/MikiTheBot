@@ -27,6 +27,7 @@ public class CommandController implements MessageCreateListener {
     @Override
     public void onMessageCreate(MessageCreateEvent event) {
         String message = event.getMessageContent().toLowerCase();
+//        System.out.format("%s (%s): %s%n", event.getMessageAuthor().getName(), event.getChannel(), message);
 
         if(event.getMessageAuthor().isBotUser()) {
             return;
@@ -46,7 +47,7 @@ public class CommandController implements MessageCreateListener {
         }
 
         //covid commands
-        else if (message.contains("!covid danes")) {
+        else if (message.contains("!covid danes") || message.contains("!sledilnik")) {
             sendEmbeddedMessage(event, covidCommands.getCovidSummary());
         }
 

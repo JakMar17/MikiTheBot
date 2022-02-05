@@ -22,6 +22,7 @@ public class CovidCommands {
                                 data.getDeceasedToDate().getDay(), data.getDeceasedToDate().getMonth(), data.getDeceasedToDate().getYear()
                         )
                 )
+
                 .addField(
                         String.format("PCR skupaj"),
                         data.getTestsToday().getValue().toString(),
@@ -29,6 +30,14 @@ public class CovidCommands {
                 )
                 .addInlineField("pozitivni", data.getTestsToday().getSubValues().getPositive().toString())
                 .addInlineField("%", String.format("%d %%", data.getTestsToday().getSubValues().getPercent()))
+
+                .addField(
+                        "HAG skupaj",
+                        data.getTestsTodayHAT().getValue().toString(),
+                        true
+                )
+                .addInlineField("pozitivni", data.getTestsTodayHAT().getSubValues().getPositive().toString())
+                .addInlineField("%", String.format("%d %%", data.getTestsTodayHAT().getSubValues().getPercent()))
 
                 .addInlineField("Povprečje (7 dni)", String.format("%d (%.2f %%)", data.getCasesAvg7Days().getValue(), data.getCasesAvg7Days().getDiffPercentage()))
                 .addInlineField("Pojavnost na 100 000 (14 dni)", String.format("%d (%.2f %%)", data.getCasesActive100k().getValue(), data.getCasesActive100k().getDiffPercentage()))
