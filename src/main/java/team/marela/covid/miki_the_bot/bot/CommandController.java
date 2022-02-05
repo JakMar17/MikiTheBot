@@ -9,6 +9,7 @@ import org.javacord.api.listener.message.MessageCreateListener;
 import org.javacord.api.util.logging.ExceptionLogger;
 import org.springframework.stereotype.Service;
 import team.marela.covid.miki_the_bot.bot.commands.CovidCommands;
+import team.marela.covid.miki_the_bot.bot.commands.CryptoCommands;
 import team.marela.covid.miki_the_bot.bot.commands.GeneralCommands;
 import team.marela.covid.miki_the_bot.bot.commands.JokesCommands;
 import team.marela.covid.miki_the_bot.services.jokes.gifs.TenorGifServices;
@@ -21,6 +22,7 @@ public class CommandController implements MessageCreateListener {
     private final GeneralCommands generalCommands;
     private final JokesCommands jokesCommands;
     private final CovidCommands covidCommands;
+    private final CryptoCommands cryptoCommands;
 
     private final TenorGifServices tenorGifServices;
 
@@ -49,6 +51,10 @@ public class CommandController implements MessageCreateListener {
         //covid commands
         else if (message.contains("!covid danes") || message.contains("!sledilnik")) {
             sendEmbeddedMessage(event, covidCommands.getCovidSummary());
+        }
+
+        else if (message.contains("!crypto")) {
+            cryptoCommands.generateResponse(event);
         }
 
     }
