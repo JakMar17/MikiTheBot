@@ -29,6 +29,7 @@ public class GeneralCommands {
                 .setTitle("MikiTheBot")
                 .setDescription("Pozdravljen, moje ime je MikiTheBot. Če te kdaj narobe razumem, se ti že v naprej pardoniram. Na žalost nisem najpametnejši.\n Pomagam ti lahko z naslednjimi ukazi")
                 .addField("!covid danes", "stanje COVIDa v Sloveniji za danšnji dan")
+                .addField("!crypto <ID>", "Ma ti bi mi znal shekat en bitkojn?")
                 .addField("!tvojamama", "TVOJA MAMA HAHAHAHAHAHAHAHAH!")
                 .addField("!prstki", "Glejte kakšno čudo se godi")
                 .addField("!izgubilsemse", "Jaz tudi :(")
