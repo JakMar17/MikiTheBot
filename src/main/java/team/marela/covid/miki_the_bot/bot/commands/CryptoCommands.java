@@ -23,27 +23,27 @@ public class CryptoCommands {
         var data = cryptoServices.getCryptoPrice(id);
         var reply = new EmbedBuilder()
                 .setTitle("Crypto " + data.getName())
-                .setImage(data.getLogoUrl())
+                .setThumbnail(data.getLogoUrl())
 
                 .addField("Price", reformatPrice(data.getPrice()) + " €")
                 .addField(
                         "1 day",
-                        String.format("%s € (%s)", reformatPrice(data.get_1d().getPriceChange()), reformatPrice((data.get_1d().getPriceChangePct()))),
+                        String.format("%s € (%s)", reformatPrice(data.get_1d().getPriceChange()), reformatPercentage((data.get_1d().getPriceChangePct()))),
                         true
                 )
                 .addField(
                         "7 days",
-                        String.format("%s € (%s)", reformatPrice(data.get_7d().getPriceChange()), reformatPrice((data.get_7d().getPriceChangePct()))),
+                        String.format("%s € (%s)", reformatPrice(data.get_7d().getPriceChange()), reformatPercentage((data.get_7d().getPriceChangePct()))),
                         true
                 )
                 .addField(
                         "30 days",
-                        String.format("%s € (%s)", reformatPrice(data.get_30d().getPriceChange()), reformatPrice((data.get_30d().getPriceChangePct()))),
+                        String.format("%s € (%s)", reformatPrice(data.get_30d().getPriceChange()), reformatPercentage((data.get_30d().getPriceChangePct()))),
                         true
                 )
                 .addField(
                         "365 days",
-                        String.format("%s € (%s)", reformatPrice(data.get_365d().getPriceChange()), reformatPrice((data.get_365d().getPriceChangePct()))),
+                        String.format("%s € (%s)", reformatPrice(data.get_365d().getPriceChange()), reformatPercentage((data.get_365d().getPriceChangePct()))),
                         true
                 ).addField(
                         "Highest",
@@ -59,10 +59,22 @@ public class CryptoCommands {
 
 
     private String reformatPrice(String plain) {
+        return reformatPrice(plain, 5);
+    }
+
+    private String reformatPrice(String plain, int noOfDecimals) {
         String[] a = plain.split("\\.");
         var wholeNo = a[0];
-        var decimalNo = a[1].length() > 2 ? a[1].substring(0, 2) : a[1];
+        var decimalNo = a[1].length() > noOfDecimals ? a[1].substring(0, noOfDecimals) : a[1];
 
         return String.format("%s,%s", wholeNo, decimalNo);
     }
+
+    private String reformatPercentage(String plain) {
+        double p = Double.parseDouble(plain);
+        p *= 100;
+
+        return reformatPrice(p + "", 2) + "%";
+    }
+
 }
