@@ -17,7 +17,7 @@ public class CryptoServices {
 
     public CryptoCurrencyRootModel getCryptoPrice(String cryptoId) {
         String url = String.format(
-            "https://api.nomics.com/v1/currencies/ticker?ids=%s&convert=EUR&key=%s",
+            "https://api.nomics.com/v1/currencies/ticker?ids=%s&convert=EUR&key=%s&per-page=1",
                 cryptoId,
                 token
         );
